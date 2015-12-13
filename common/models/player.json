@@ -1,26 +1,24 @@
 {
-  "name": "Game",
-  "plural": "Games",
+  "name": "Player",
+  "plural": "Players",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "date": {
-      "type": "date",
-      "required": true
+    "gamesLost": {
+      "type": "number"
     },
-    "state": {
-      "type": "string",
-      "required": true
+    "gamesWon": {
+      "type": "number"
     }
   },
   "validations": [],
   "relations": {
-    "players": {
-      "type": "hasAndBelongsToMany",
-      "model": "Player",
+    "user": {
+      "type": "belongsTo",
+      "model": "User",
       "foreignKey": ""
     }
   },

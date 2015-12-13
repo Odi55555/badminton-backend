@@ -35,5 +35,9 @@
   "Game": {
     "dataSource": "db",
     "public": true
+  },
+  "Player": {
+    "dataSource": "db",
+    "public": true
   }
 }
