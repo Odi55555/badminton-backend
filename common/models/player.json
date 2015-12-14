@@ -20,6 +20,11 @@
       "type": "belongsTo",
       "model": "User",
       "foreignKey": ""
+    },
+    "games": {
+      "type": "hasAndBelongsToMany",
+      "model": "Game",
+      "foreignKey": ""
     }
   },
   "acls": [
