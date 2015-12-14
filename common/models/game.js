@@ -2,22 +2,26 @@ module.exports = function(Game) {
 	Game.register = function(gameId, userId, playGame, callback) {
 		console.log('register player with userId ' + userId + ' for game with gameId ' + gameId);
 		Game.findById(gameId, function(err, game) {
+			if (err) throw err;
 			// console.log('found game');
 			// console.log(err);
 			// console.log(game);
 			if (game) {
 				var app = Game.app;
 				var Player = app.models.Player;
-				Player.find({where: {userId: userId}}, function(err, players) {
+				Player.findById(userId, function(err, player) {
+					if (err) throw err;
 					// console.log('found player');
-					// console.log(players);
+					// console.log(player);
 					if (playGame) {
-						game.players.add(players[0], function(err) {
-						  console.log('Player added');
-						});		
+						game.players.add(player, function(err) {
+							if (err) throw err;
+							console.log('Player added');
+						});
 					} else {
-						game.players.remove(players[0], function(err) {
-						  console.log('Player removed');
+						game.players.remove(player, function(err) {
+							if (err) throw err;
+							console.log('Player removed');
 						});
 					}							
 				});
