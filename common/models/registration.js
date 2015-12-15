@@ -95,9 +95,11 @@ module.exports = function(Registration) {
 		var app = Registration.app;
 		var Game = app.models.Game;
 		Game.findById(gameId, function(err, game) {
+			if (err) throw err;
 			game.registrations({
 				include: 'player'
 			}, function(err, registrations) {
+				if (err) throw err;
 				callback(null, registrations);
 			});
 		});
@@ -116,6 +118,38 @@ module.exports = function(Registration) {
 			// TODO optimze return values
 			returns: {
 				arg: 'registrations',
+				type: 'Object'
+			}
+		}
+	);
+	Registration.getRegistration = function(gameId, userId, callback) {
+		var app = Registration.app;
+		var Player = app.models.Player;
+		Player.findById(userId, function(err, player) {
+			if (err) throw err;
+			player.registrations.findOne({where: {gameId: gameId}}, function(err, registration) {
+				if (err) throw err;
+				callback(null, registration);
+			});
+		});
+	};
+	Registration.remoteMethod(
+		'getRegistration', {
+			http: {
+				path: '/getRegistration',
+				verb: 'post'
+			},
+			accepts: [{
+				arg: 'gameId',
+				type: 'string'
+			}, {
+				arg: 'userId',
+				type: 'string'
+			}],
+			descrption: 'TODO: describe me',
+			// TODO optimze return values
+			returns: {
+				arg: 'getRegistration',
 				type: 'Object'
 			}
 		}
