@@ -1,26 +1,42 @@
 {
-  "name": "Game",
-  "plural": "Games",
+  "name": "Registration",
+  "plural": "Registrations",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "date": {
-      "type": "date",
+    "preferredTimeslot": {
+      "type": "string",
       "required": true
     },
-    "state": {
+    "duration": {
       "type": "string",
+      "required": true
+    },
+    "backToCompany": {
+      "type": "boolean",
+      "required": true
+    },
+    "passengers": {
+      "type": "number"
+    },
+    "dinner": {
+      "type": "boolean",
       "required": true
     }
   },
   "validations": [],
   "relations": {
-    "registrations": {
-      "type": "hasMany",
-      "model": "Registration",
+    "player": {
+      "type": "belongsTo",
+      "model": "Player",
+      "foreignKey": ""
+    },
+    "game": {
+      "type": "belongsTo",
+      "model": "Game",
       "foreignKey": ""
     }
   },

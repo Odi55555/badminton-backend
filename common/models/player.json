@@ -16,9 +16,9 @@
   },
   "validations": [],
   "relations": {
-    "games": {
-      "type": "hasAndBelongsToMany",
-      "model": "Game",
+    "registrations": {
+      "type": "hasMany",
+      "model": "Registration",
       "foreignKey": ""
     }
   },

@@ -36,5 +36,9 @@
   "Player": {
     "dataSource": "db",
     "public": true
+  },
+  "Registration": {
+    "dataSource": "db",
+    "public": true
   }
 }
