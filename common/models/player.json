@@ -1,19 +1,17 @@
 {
-  "name": "Game",
-  "plural": "Games",
-  "base": "PersistedModel",
+  "name": "Player",
+  "plural": "Players",
+  "base": "User",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "date": {
-      "type": "date",
-      "required": true
+    "gamesLost": {
+      "type": "number"
     },
-    "state": {
-      "type": "string",
-      "required": true
+    "gamesWon": {
+      "type": "number"
     }
   },
   "validations": [],
