@@ -9,3 +9,6 @@ Run the application
 $ node .
 Browse your REST API at http://0.0.0.0:3000/explorer
 Web server listening at: http://0.0.0.0:3000/
+
+Demo:
+https://desolate-mountain-4920.herokuapp.com/explorer
