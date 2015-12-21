@@ -1,0 +1,26 @@
+/* line 2, ../../app/states/administration/_administration.scss */
+.administration-state .button {
+  min-width: 125px;
+}
+/* line 5, ../../app/states/administration/_administration.scss */
+.administration-state .date-already-exists .item {
+  background-color: #ffc900;
+}
+
+/* line 2, ../../app/states/register-game/_register-game.scss */
+.register-game-state .no-games .item {
+  background-color: #ffc900;
+}
+
+/* line 2, ../../app/states/game-overview/_game-overview.scss */
+.game-overview-state .item-thumbnail-right {
+  padding-top: 16px;
+  padding-right: 46px;
+  min-height: 54px;
+}
+/* line 7, ../../app/states/game-overview/_game-overview.scss */
+.game-overview-state .item-thumbnail-right img:first-child {
+  top: 16px;
+  max-width: 20px;
+  max-height: 20px;
+}
