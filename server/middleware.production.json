@@ -1,4 +1,10 @@
 {
+  "routes": {},
+  "files": {
+    "loopback#static": {
+      "params": "$!../client"
+    }
+  },
   "final:after": {
     "loopback#errorHandler": {
       "params": {
