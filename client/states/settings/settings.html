@@ -1,0 +1,33 @@
+<ion-view view-title="Einstellungen">
+<ion-content>
+<div class="list card">
+	<div class="item item-text-wrap">
+		Hier kannst du deine Voreinstellungen auswählen, die für jede Spiel-Registrierung vorausgewählt sein sollen:
+	</div>
+	<label class="item item-input item-select">
+		<div class="input-label">
+			Spielbeginn
+		</div>
+		<select ng-model="settings.preferredTimeslot" ng-change="settings.onModelChange('preferredTimeslot', settings.preferredTimeslot)" ng-options="item for item in settings.preferredTimeslotOptions"></select>
+	</label>
+	<label class="item item-input item-select">
+		<div class="input-label">
+			Spieldauer
+		</div>
+		<select ng-model="settings.duration" ng-change="settings.onModelChange('duration', settings.duration)" ng-options="item for item in settings.durationOptions"></select>
+	</label>
+	<ion-toggle ng-model="settings.backToCompany" toggle-class="toggle-calm" ng-change="settings.onModelChange('backToCompany', settings.backToCompany)">Ich fahre zurück zur Firma</ion-toggle>
+	<div class="item item-range" ng-hide="true">
+		Anzahl freier Plätze
+		<span class="item-right">{{settings.passengers}}</span>
+		<div class="item range range-positive">
+			<input type="range" name="passengers" min="0" max="8" value="0" ng-model="settings.passengers" ng-change="settings.onModelChange('passengers', settings.passengers)">
+		</div>
+	</div>
+	<ion-toggle ng-model="settings.dinner" toggle-class="toggle-calm" ng-change="settings.onModelChange('dinner', settings.dinner)">Essen</ion-toggle>
+</div>
+</ion-content>
+<div class="bar bar-footer">
+	<div class="title">Badminton App Version 0.1.0</div>
+</div>
+</ion-view>

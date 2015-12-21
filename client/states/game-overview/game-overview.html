@@ -1,0 +1,17 @@
+<ion-view view-title="Übersicht Anmeldungen" class="game-overview-state">
+  <ion-content>
+	<ion-refresher
+		pulling-text="Zum Aktualisieren loslassen..."
+		on-refresh="reloadContent()">
+	</ion-refresher>
+	<ion-list>
+		<div ng-repeat="game in gameOverview.games | orderBy:'+date'">
+			<div class="item item-divider">{{game.registrations.length}} Mitspieler am {{game.date | amDateFormat:'DD.MM.YYYY'}}:</div>
+			<ion-item ng-repeat="registration in game.registrations" class="item-thumbnail-right">
+			{{registration.player.username}} || Dauer: {{registration.duration}} || Beginn: {{registration.preferredTimeslot}} 
+				<img ng-src="images/{{(registration.backToCompany) ? 'empolis-short.ico' : 'empolis-short-crossedout.ico'}}">
+			</ion-item>
+		</div>
+	</ion-list>
+  </ion-content>
+</ion-view>

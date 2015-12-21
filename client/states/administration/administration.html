@@ -1,0 +1,26 @@
+<ion-view view-title="Administration" class="administration-state">
+<ion-content>
+<div class="list item-text-wrap">
+	<div class="item item-divider">Bereits angelegte Spieltage:</div>
+	<ul>
+		<li ng-repeat="game in admin.futureGames(admin.games) | orderBy:'+date'" class="item item-button-right">
+			{{game.date | amDateFormat:'DD.MM.YYYY'}}
+			<span ng-show="game.state === 'running'">- Spiel gestartet</span>
+			<button class="button button-small" ng-click="admin.showConfirm(game)" ng-class="{'button-positive': game.state === 'planned', 'button-balanced': game.state === 'running', 'button-light': game.state === 'stopped'}" ng-disabled="game.state === 'stopped'">
+				<span ng-if="game.state === 'planned'">Spiel starten</span>
+				<span ng-if="game.state === 'running'">Spiel beenden</span>
+				<span ng-if="game.state === 'stopped'">Spiel beendet</span>
+			</button>
+		</li>
+	</ul>
+</div>
+<div class="card date-already-exists" ng-show="admin.dateAlreadyExists">
+	<div class="item item-text-wrap">
+		Das Spiel ist bereits angelegt!
+	</div>
+</div>
+<ionic-datepicker idate="admin.currentDate" disablepreviousdates="true" callback="admin.addNewGameDatePickerCallback" disableddates="admin.games" title="'Spieltag auswählen'" mondayfirst="true">
+	<button class="button button-full button-positive ion-plus"> Neuen Spieltag hinzufügen</button>
+</ionic-datepicker>
+</ion-content>
+</ion-view>
