@@ -8,8 +8,8 @@
 		<div ng-repeat="game in gameOverview.games | orderBy:'+date'">
 			<div class="item item-divider">{{game.registrations.length}} Mitspieler am {{game.date | amDateFormat:'DD.MM.YYYY'}}:</div>
 			<ion-item ng-repeat="registration in game.registrations" class="item-thumbnail-right">
-			{{registration.player.username}} || Dauer: {{registration.duration}} || Beginn: {{registration.preferredTimeslot}} 
-				<img ng-src="images/{{(registration.backToCompany) ? 'empolis-short.ico' : 'empolis-short-crossedout.ico'}}">
+			{{registration.player.username}} || Dauer: {{registration.duration}} || Beginn: {{registration.preferredTimeslot}}
+				<img ng-src="images/{{(registration.backToCompany) ? 'empolis-short.png' : 'empolis-short-crossedout.png'}}">
 			</ion-item>
 		</div>
 	</ion-list>
